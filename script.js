@@ -3,6 +3,7 @@ const range = document.querySelector(".range");
 const price = document.querySelector(".price");
 const toggle = document.getElementById("toggle");
 let number = null;
+
 const viewsObj = {
   1: "10K pageviews",
   2: "50K pageviews",
@@ -10,6 +11,7 @@ const viewsObj = {
   4: "500K pageviews",
   5: "1M pageviews",
 };
+
 const priceObj = {
   1: 8,
   2: 12,
@@ -17,22 +19,23 @@ const priceObj = {
   4: 24,
   5: 36,
 };
-function perMonth(range) {
-  range.addEventListener("change", (e) => {
-    views.textContent = `${viewsObj[e.target.value]}`.toLocaleUpperCase();
-    price.textContent = `$ ${priceObj[e.target.value]}.00`;
-  });
-}
 
-toggle.addEventListener("change", (e) => {
+function UpdateViewsAndPrice() {
+  let value = range.value;
+  let priceValue = priceObj[value];
+  let viewsValue = viewsObj[value];
+
   if (toggle.checked === true) {
-    range.addEventListener("change", (e) => {
-      number = priceObj[e.target.value] * 0.75 * 12;
-      views.textContent = `${viewsObj[e.target.value]}`.toLocaleUpperCase();
-      price.textContent = `$ ${number}.00`;
-    });
+    priceValue = priceObj[value] * 0.75 * 12;
+    document.querySelector(".period").textContent = "/ year";
   } else {
-    perMonth(range);
+    document.querySelector(".period").textContent = "/ month";
   }
-});
-perMonth(range);
+
+  views.textContent = viewsValue;
+  price.textContent = `$ ${priceValue.toFixed(2)}`;
+
+  range.addEventListener("change", UpdateViewsAndPrice);
+  toggle.addEventListener("change", UpdateViewsAndPrice);
+}
+UpdateViewsAndPrice();
