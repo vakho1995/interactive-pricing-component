@@ -24,6 +24,9 @@ function UpdateViewsAndPrice() {
   let value = range.value;
   let priceValue = priceObj[value];
   let viewsValue = viewsObj[value];
+  let percent = (+value / +range.max) * 100 - 6; // The background was misaligned with the thumb, so I'm manually reducing the percentage by 6 to fix it.
+
+  range.style.background = `linear-gradient(to right, #a4f3eb ${percent}%, #ecf0fb ${percent}%)`;
 
   if (toggle.checked === true) {
     priceValue = priceObj[value] * 0.75 * 12;
@@ -35,7 +38,7 @@ function UpdateViewsAndPrice() {
   views.textContent = viewsValue;
   price.textContent = `$ ${priceValue.toFixed(2)}`;
 
-  range.addEventListener("change", UpdateViewsAndPrice);
+  range.addEventListener("input", UpdateViewsAndPrice);
   toggle.addEventListener("change", UpdateViewsAndPrice);
 }
 UpdateViewsAndPrice();
