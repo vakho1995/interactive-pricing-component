@@ -2,7 +2,6 @@ const views = document.querySelector(".for-pageviews");
 const range = document.querySelector(".range");
 const price = document.querySelector(".price");
 const toggle = document.getElementById("toggle");
-let number = null;
 
 const viewsObj = {
   1: "10K pageviews",
@@ -21,11 +20,11 @@ const priceObj = {
 };
 
 function UpdateViewsAndPrice() {
-  let value = range.value;
+  const value = range.value;
+  const viewsValue = viewsObj[value];
   let priceValue = priceObj[value];
-  let viewsValue = viewsObj[value];
-  let percent = (+value / +range.max) * 100 - 6; // The background was misaligned with the thumb, so I'm manually reducing the percentage by 6 to fix it.
 
+  const percent = ((value - range.min) / (range.max - range.min)) * 100;
   range.style.background = `linear-gradient(to right, #a4f3eb ${percent}%, #ecf0fb ${percent}%)`;
 
   if (toggle.checked === true) {
