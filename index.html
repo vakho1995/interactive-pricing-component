@@ -8,11 +8,25 @@
     <title>Document</title>
   </head>
   <body>
-    <main>
-      <section>
-        <p class="for-pageviews">100K PAGEVIEWS</p>
+    <div class="header">
+      <div class="title-div">
+        <h1>Simple, traffic-based pricing</h1>
+        <p class="title-p">
+          Sign-up for our 30-day trial. No credit card required.
+        </p>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <div class="price-and-view-div">
+          <p class="for-pageviews">100K PAGEVIEWS</p>
+          <div class="hide-on-mobile">
+            <p class="price"></p>
+            <p class="period"></p>
+          </div>
+        </div>
         <input type="range" min="1" max="5" class="range" />
-        <div class="div-for-price">
+        <div class="hide-on-desktop">
           <p class="price"></p>
           <p class="period"></p>
         </div>
@@ -25,58 +39,61 @@
           <p>Yearly Billing <span class="discount">-25%</span></p>
         </div>
         <hr />
-        <div class="benefits">
-          <div class="benefit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="8"
-              height="8"
-              viewBox="0 0 8 8"
-              fill="none"
-            >
-              <path
-                d="M0 4.13439L1.90736 6.04175L6.9491 1"
-                stroke="#10D8C4"
-                stroke-width="2"
-              />
-            </svg>
-            <p>Unlimited websites</p>
+        <div class="benefits-and-button-container">
+          <div class="benefits">
+            <div class="benefit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+              >
+                <path
+                  d="M0 4.13439L1.90736 6.04175L6.9491 1"
+                  stroke="#10D8C4"
+                  stroke-width="2"
+                />
+              </svg>
+              <p>Unlimited websites</p>
+            </div>
+            <div class="benefit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+              >
+                <path
+                  d="M0 4.13439L1.90736 6.04175L6.9491 1"
+                  stroke="#10D8C4"
+                  stroke-width="2"
+                />
+              </svg>
+              <p>100% data ownership</p>
+            </div>
+            <div class="benefit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+              >
+                <path
+                  d="M0 4.13439L1.90736 6.04175L6.9491 1"
+                  stroke="#10D8C4"
+                  stroke-width="2"
+                />
+              </svg>
+              <p>Email reports</p>
+            </div>
           </div>
-          <div class="benefit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="8"
-              height="8"
-              viewBox="0 0 8 8"
-              fill="none"
-            >
-              <path
-                d="M0 4.13439L1.90736 6.04175L6.9491 1"
-                stroke="#10D8C4"
-                stroke-width="2"
-              />
-            </svg>
-            <p>100% data ownership</p>
-          </div>
-          <div class="benefit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="8"
-              height="8"
-              viewBox="0 0 8 8"
-              fill="none"
-            >
-              <path
-                d="M0 4.13439L1.90736 6.04175L6.9491 1"
-                stroke="#10D8C4"
-                stroke-width="2"
-              />
-            </svg>
-            <p>Email reports</p>
-          </div>
+
+          <button>Start my trial</button>
         </div>
-        <button>Start my trial</button>
-      </section>
-    </main>
+      </div>
+    </section>
   </body>
 </html>

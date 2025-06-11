@@ -1,7 +1,8 @@
 const views = document.querySelector(".for-pageviews");
 const range = document.querySelector(".range");
-const price = document.querySelector(".price");
 const toggle = document.getElementById("toggle");
+const priceElements = document.querySelectorAll(".price");
+const periodElements = document.querySelectorAll(".period");
 
 const viewsObj = {
   1: "10K pageviews",
@@ -29,15 +30,21 @@ function UpdateViewsAndPrice() {
 
   if (toggle.checked === true) {
     priceValue = priceObj[value] * 0.75 * 12;
-    document.querySelector(".period").textContent = "/ year";
+    periodElements.forEach((element) => {
+      element.textContent = "/ year";
+    });
   } else {
-    document.querySelector(".period").textContent = "/ month";
+    periodElements.forEach((element) => {
+      element.textContent = "/ month";
+    });
   }
 
-  views.textContent = viewsValue;
-  price.textContent = `$ ${priceValue.toFixed(2)}`;
-
-  range.addEventListener("input", UpdateViewsAndPrice);
-  toggle.addEventListener("change", UpdateViewsAndPrice);
+  views.textContent = viewsValue.toUpperCase();
+  priceElements.forEach((element) => {
+    element.textContent = `$ ${priceValue.toFixed(2)}`;
+  });
 }
+range.addEventListener("input", UpdateViewsAndPrice);
+toggle.addEventListener("change", UpdateViewsAndPrice);
+
 UpdateViewsAndPrice();
